@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import myContext from "../../context/data/myContext";
 
 function Login() {
+    const context = useContext(myContext)
   return (
     <div className=" flex justify-center items-center h-screen">
       <div className=" bg-gray-800 px-10 py-10 rounded-xl ">
