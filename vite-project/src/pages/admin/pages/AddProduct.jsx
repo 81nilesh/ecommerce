@@ -66,6 +66,7 @@ function AddProduct() {
               cols="30"
               rows="10"
               name="description"
+              value={products.description}
               onChange={(e) =>
                 setProducts({ ...products, description: e.target.value })
               }
