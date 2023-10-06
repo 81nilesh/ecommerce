@@ -10,7 +10,7 @@ import NoPage from "./pages/nopage/NoPage";
 import Home from "./pages/home/Home";
 import Cart from "./pages/cart/Cart";
 import Order from "./pages/order/Order";
-import MyState from "./context/data/myState";
+import MyState from "./context/data/MyState.1";
 import Login from "./pages/registration/Login";
 import Signup from "./pages/registration/Signup";
 import ProductInfo from "./pages/productInfo/ProductInfo";

@@ -67,7 +67,7 @@ function MyState(props) {
       console.log(error);
       setLoading(false);
     }
-    setProducts("");
+    // setProducts("");
   };
 
   const [product, setProduct] = useState([]);
@@ -100,6 +100,41 @@ function MyState(props) {
     getProductData();
   }, []);
 
+  // update product function
+
+  const edithandle = (item) => {
+    setProducts(item);
+  };
+
+  const updateProduct = async () => {
+    setLoading(true);
+    try {
+      await setDoc(doc(fireDB, "products", products.id), products);
+      toast.success("Product Updated successfully");
+      getProductData();
+      window.location.href = "/dashboard";
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
+
+  // Delete products
+
+  const deleteProduct = async (item) => {
+    try {
+      setLoading(true);
+      await deleteDoc(doc(fireDB, "products", item.id));
+      toast.success("Product Deleted successfully");
+      setLoading(false);
+      getProductData();
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
+
   return (
     <MyContext.Provider
       value={{
@@ -110,6 +145,10 @@ function MyState(props) {
         products,
         setProducts,
         addProduct,
+        product,
+        edithandle,
+        updateProduct,
+        deleteProduct
       }}>
       {props.children}
     </MyContext.Provider>
